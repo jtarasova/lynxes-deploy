@@ -13,12 +13,11 @@ import authCheck from './middlewares/authCheck';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.engine('js', jsxRender);
 app.set('view engine', 'js');
 app.set('views', path.join(__dirname, 'components'));
 const FileStore = store(session);
-
 
 const sessionConfig = {
   name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid
